@@ -1,0 +1,13 @@
+Changelog to existing code:
+- Renamed isIllegalPosition() to offBoard(), I think this name is more accurate and clear
+- Added protected method getBuffer(), which determines the number required to check if a piece should be on the board or not
+	- Reduces duplicate code
+	- Utilized in the creation of the game boards as well as in the getGameState() method for determining spaces
+- Created an abstract class AbstractSolitaireModel, in order to reduce code duplication throughout the project
+	- Implements the MarbleSolitaireModel interface
+	- All fields from MarbleSolitaireModelImpl now exist in the abstract class
+	- MarbleSolitaireModelImpl, EuropeanSolitaireModelImpl, and TriangleSolitaireModelImpl all extend from this abstract class
+	- Majority of the code from MarbleSolitaireModelImpl's methods were moved to this abstract class
+- In move(), reduced code duplication through local variables, and clarified the conditions for moving
+	- Fixes a few movement bugs
+- No changes to MarbleSolitaireControllerImpl
